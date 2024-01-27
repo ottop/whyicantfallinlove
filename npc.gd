@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 const speed = 30
 var current_state = IDLE
@@ -39,12 +39,6 @@ func _process(delta):
 			MOVE:
 				move(delta)
 				
-	if Input.is_action_just_pressed("chat"):
-		print("chatting with npc")
-		$Dialogue.start()
-		is_roaming = false
-		is_chatting = true
-		$AnimatedSprite2D.play("idle")
 		
 func choose(array):
 	array.shuffle()
@@ -71,3 +65,21 @@ func _on_timer_timeout():
 func _on_dialogue_dialogue_finished():
 	is_chatting = false
 	is_roaming = true
+
+
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		var hitbox = body.get_node("characterhitbox")
+		if hitbox:
+			$Dialogue.start()
+			is_roaming = false
+			is_chatting = true
+			$AnimatedSprite2D.play("idle")
+
+
+func _on_body_exited(body):
+	if body is CharacterBody2D:
+		var hitbox = body.get_node("characterhitbox")
+		if hitbox:
+			is_chatting = false
+			is_roaming = true

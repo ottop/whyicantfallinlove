@@ -157,7 +157,7 @@ radius = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifpo0"]
 radius = 14.0
 
-[node name="npc" type="CharacterBody2D"]
+[node name="npc" type="Area2D"]
 position = Vector2(552, 331)
 scale = Vector2(2, 2)
 script = ExtResource("1_jokqq")
