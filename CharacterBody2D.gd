@@ -14,7 +14,6 @@ var wind_strength = 0
 func _ready():
 	weatherControlNode = $"/root/Node2D/weather_control"
 	storm_sound = $"/root/Node2D/storm_audio"  # Replace with the actual name of your AudioStreamPlayer node
-	storm_sound.loop = true
 	weatherControlNode.visible = false
 	jump_sound = $"/root/Node2D/CharacterBody2D/jump"
 
