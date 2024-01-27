@@ -37,14 +37,8 @@ func _physics_process(delta):
 	# Handle wind effect
 	if not is_on_floor() or Input.get_action_strength("ui_left") > 0 or Input.get_action_strength("ui_right") > 0:
 		velocity.x = (wind_strength + Input.get_axis("ui_left", "ui_right")) * SPEED
-		$AnimatedSprite2D.play("run")
-	if Input.get_action_strength("ui_left") > 0:
-		$AnimatedSprite2D.flip_h = true
-	elif Input.get_action_strength("ui_right") > 0:
-		$AnimatedSprite2D.flip_h = false
 	else:
 		velocity.x = 0
-		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
 
@@ -72,6 +66,7 @@ func _on_area_2d_body_exited(body):
 	if body is CharacterBody2D:
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
+			disable_wind()
 			print("bye")
 
 func _on_ending_area_body_entered(body):
