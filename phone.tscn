@@ -1,0 +1,240 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwpbu7twowljm"]
+
+[ext_resource type="Texture2D" uid="uid://clpadaulbl2e1" path="res://phone.png" id="1_8pmg7"]
+[ext_resource type="Script" path="res://PersonImage.gd" id="2_ai8cl"]
+[ext_resource type="Script" path="res://SwipeGuide.gd" id="2_lsdia"]
+[ext_resource type="Texture2D" uid="uid://d1uk0mhuyn4lw" path="res://shipPink_manned.png" id="3_8ekxo"]
+[ext_resource type="Script" path="res://MessagingView.gd" id="4_mjasr"]
+[ext_resource type="Texture2D" uid="uid://di25ai0srsb7" path="res://messagebox.png" id="5_81wv6"]
+[ext_resource type="Script" path="res://InputBox.gd" id="5_162m8"]
+[ext_resource type="Texture2D" uid="uid://cx4ak66yen8yl" path="res://topbar.png" id="6_62e7e"]
+[ext_resource type="Texture2D" uid="uid://pxja0xwxna7d" path="res://sexybabebubble.png" id="8_ult7i"]
+[ext_resource type="Texture2D" uid="uid://dh0vvxibs5ok4" path="res://playerbubble.png" id="9_ipdou"]
+
+[sub_resource type="Gradient" id="Gradient_o3us3"]
+colors = PackedColorArray(0.709804, 0.627451, 0, 1, 1, 0.541176, 0.815686, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_weetd"]
+gradient = SubResource("Gradient_o3us3")
+width = 600
+height = 395
+fill_from = Vector2(0.33945, 1)
+fill_to = Vector2(0.674312, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjdy4"]
+size = Vector2(359, 392)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjcl7"]
+size = Vector2(190, 191)
+
+[node name="Phone" type="Area2D"]
+position = Vector2(-398, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8pmg7")
+
+[node name="Background" type="StaticBody2D" parent="."]
+position = Vector2(500, 323)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(78, 0)
+scale = Vector2(0.6, 1)
+texture = SubResource("GradientTexture2D_weetd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(578.5, 322)
+shape = SubResource("RectangleShape2D_qjdy4")
+
+[node name="SwipeGuide" type="Label" parent="."]
+offset_left = 398.0
+offset_top = 450.0
+offset_right = 758.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 23
+text = "Press Enter to swipe right"
+horizontal_alignment = 1
+script = ExtResource("2_lsdia")
+
+[node name="PersonImage" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("2_ai8cl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PersonImage"]
+position = Vector2(578, 325)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_8ekxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PersonImage"]
+position = Vector2(578, 324.5)
+shape = SubResource("RectangleShape2D_rjcl7")
+
+[node name="MessagingView" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(570, 450)
+script = ExtResource("4_mjasr")
+
+[node name="InputBox" type="StaticBody2D" parent="MessagingView"]
+script = ExtResource("5_162m8")
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/InputBox"]
+position = Vector2(-7, 26)
+scale = Vector2(0.4, 0.3)
+texture = ExtResource("5_81wv6")
+
+[node name="Label" type="Label" parent="MessagingView/InputBox"]
+offset_left = -136.0
+offset_top = 13.0
+offset_right = -69.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="TopBar" type="StaticBody2D" parent="MessagingView"]
+position = Vector2(0, -250)
+scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/TopBar"]
+position = Vector2(-41.1111, -46.6667)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("6_62e7e")
+
+[node name="PlayerBubble1" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(141, -214)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/PlayerBubble1"]
+position = Vector2(-0.882446, -1.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_ipdou")
+
+[node name="Label" type="Label" parent="MessagingView/PlayerBubble1"]
+offset_left = -13.8824
+offset_top = -13.25
+offset_right = 9.11755
+offset_bottom = 10.75
+text = "Hi"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerBubble2" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(112, -164)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/PlayerBubble2"]
+position = Vector2(4.4118, 4.63239)
+scale = Vector2(1.1, 0.5)
+texture = ExtResource("9_ipdou")
+
+[node name="Label" type="Label" parent="MessagingView/PlayerBubble2"]
+offset_left = -38.5883
+offset_top = -8.36765
+offset_right = 37.4117
+offset_bottom = 14.6324
+text = "Hell yeah!"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerBubble3" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(100, -100)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/PlayerBubble3"]
+position = Vector2(4.29413, 2.27942)
+scale = Vector2(1.38, 0.5)
+texture = ExtResource("9_ipdou")
+
+[node name="Label" type="Label" parent="MessagingView/PlayerBubble3"]
+offset_left = -50.7059
+offset_top = -10.7206
+offset_right = 54.2941
+offset_bottom = 12.2794
+text = "See you then!"
+metadata/_edit_use_anchors_ = true
+
+[node name="SexyBubble1" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(-116, -243)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/SexyBubble1"]
+position = Vector2(-1.58823, 3.4559)
+scale = Vector2(0.58, 0.5)
+texture = ExtResource("8_ult7i")
+
+[node name="Label" type="Label" parent="MessagingView/SexyBubble1"]
+offset_left = -15.5883
+offset_top = -9.54413
+offset_right = 24.4117
+offset_bottom = 13.4559
+text = "Hey"
+metadata/_edit_use_anchors_ = true
+
+[node name="SexyBubble2" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(-86, -184)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/SexyBubble2"]
+position = Vector2(0.0881958, -3.60297)
+scale = Vector2(1.39, 0.5)
+texture = ExtResource("8_ult7i")
+
+[node name="Label" type="Label" parent="MessagingView/SexyBubble2"]
+offset_left = -52.4118
+offset_top = -16.603
+offset_right = 56.5882
+offset_bottom = 6.397
+text = "Up for a date?"
+metadata/_edit_use_anchors_ = true
+
+[node name="SexyBubble3" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(-66, -125)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/SexyBubble3"]
+position = Vector2(9.08817, -3.60287)
+scale = Vector2(1.97, 0.5)
+texture = ExtResource("8_ult7i")
+
+[node name="Label" type="Label" parent="MessagingView/SexyBubble3"]
+offset_left = -72.4119
+offset_top = -15.6029
+offset_right = 96.5881
+offset_bottom = 7.39709
+text = "Love 101 Cafe at 6 pm"
+metadata/_edit_use_anchors_ = true
+
+[node name="SexyBubbleEnding" type="StaticBody2D" parent="MessagingView"]
+visible = false
+position = Vector2(-49, -52)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MessagingView/SexyBubbleEnding"]
+position = Vector2(14.4117, 0.463257)
+scale = Vector2(2.5, 0.796667)
+texture = ExtResource("8_ult7i")
+
+[node name="Label" type="Label" parent="MessagingView/SexyBubbleEnding"]
+offset_left = -94.5883
+offset_top = -25.6618
+offset_right = 130.412
+offset_bottom = 23.3382
+text = "Turns out I can't make today. 
+Next week?"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_exited" from="." to="PersonImage" method="_on_phone_body_exited"]
+[connection signal="change_view" from="PersonImage" to="MessagingView" method="_on_person_image_change_view"]
+[connection signal="change_view" from="PersonImage" to="SwipeGuide" method="_on_person_image_change_view"]
+[connection signal="message" from="MessagingView/InputBox" to="MessagingView" method="_on_input_box_message"]
