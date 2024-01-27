@@ -1,0 +1,6 @@
+res://character_body_2d.tscn
+res://npc.gd
+res://npc.tscn
+res://dialogueplayer.gd
+res://dialogue/text.json
+res://dialogue.tscn
