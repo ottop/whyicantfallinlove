@@ -1,0 +1,7 @@
+res://node_2d.tscn
+res://CharacterBody2D.gd
+res://Area2D.gd
+res://follow cam.gd
+res://rain.gd
+res://weather_control.tscn
+res://wind_area.gd

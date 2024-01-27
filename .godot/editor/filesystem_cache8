@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1706365006
+CharacterBody2D.gd::GDScript::-1::1706363901::0::1::::<>CharacterBody2D<>::
+character_body_2d.tscn::PackedScene::6532801844116119224::1706301517::0::1::::<><>::res://CharacterBody2D.gd<>uid://qrarkjki5shd::::res://icon.svg
+icon.svg::CompressedTexture2D::1158146818126903849::1706294298::1706295104::1::::<><>::
+node_2d.tscn::PackedScene::1449589135784174607::1706364267::0::1::::<><>::res://CharacterBody2D.gd<>uid://qrarkjki5shd::::res://icon.svg<>uid://dig6q15fqn5qc::::res://weather_control.tscn<>uid://cyw5ug1elds4e::::res://rain-and-thunder-16705.mp3
+Area2D.gd::GDScript::-1::1706356323::0::1::::<>Area2D<>::
+follow cam.gd::GDScript::-1::1706351004::0::1::::<>Camera2D<>::
+rain-and-thunder-16705.mp3::AudioStreamMP3::6504647506450983022::1706360441::1706360441::1::::<><>::
+rain.png::CompressedTexture2D::282209011224686835::1706352299::1706352300::1::::<><>::
+rain.gd::GDScript::-1::1706354844::0::1::::<>RefCounted<>::
+swing-whoosh-110410.mp3::AudioStreamMP3::4849717847734999053::1706365006::1706365006::1::::<><>::
+wind_area.gd::GDScript::-1::1706356871::0::1::::<>Area2D<>::
+weather_control.tscn::PackedScene::7735071278386500514::1706364267::0::1::::<><>::uid://eax7aajs0ojb::::res://rain.png
