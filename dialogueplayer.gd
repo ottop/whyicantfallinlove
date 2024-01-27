@@ -19,18 +19,14 @@ func start():
 	$NinePatchRect.visible = true
 	dialogue = load_dialogue()
 	current_dialogue_id = -1
-	next_script()
+	for i in range(0,3):
+		next_script()
+		await get_tree().create_timer(1).timeout
 
 func load_dialogue():
 	var file = FileAccess.open("res://dialogue/text.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
-	return content
-
-func _input(event):
-	if !d_active:
-		return
-	if event.is_action_pressed("ui_accept"):
-		next_script()
+	return content		
 		
 func next_script():
 	current_dialogue_id += 1

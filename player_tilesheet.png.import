@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7884ymu355eb"
-path="res://.godot/imported/chatting_bubble.png-99735bdbb2586c8f5e7ccc6d2b81bb54.ctex"
+uid="uid://v7vp2pu1en4t"
+path="res://.godot/imported/player_tilesheet.png-4230deed5c78183c8694214c892b6b75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chatting_bubble.png"
-dest_files=["res://.godot/imported/chatting_bubble.png-99735bdbb2586c8f5e7ccc6d2b81bb54.ctex"]
+source_file="res://player_tilesheet.png"
+dest_files=["res://.godot/imported/player_tilesheet.png-4230deed5c78183c8694214c892b6b75.ctex"]
 
 [params]
 

@@ -15,12 +15,12 @@ scale_max = 5.0
 [node name="weather_control" type="StaticBody2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.752941, 0.752941, 0.972549, 1)
+color = Color(0.537255, 0.509804, 0.929412, 0.988235)
 
 [node name="rain" type="GPUParticles2D" parent="."]
 position = Vector2(568, -19)
-scale = Vector2(3.03, 3.03)
-amount = 300
+scale = Vector2(5, 5)
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_fe208")
 texture = ExtResource("1_2d0q8")
 lifetime = 4.0

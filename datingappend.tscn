@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4nfkgoueb2n7"]
+[gd_scene load_steps=2 format=3 uid="uid://dcow05l11iu5g"]
 
-[ext_resource type="PackedScene" uid="uid://dwpbu7twowljm" path="res://phone.tscn" id="1_0m82o"]
+[ext_resource type="PackedScene" uid="uid://bb4nvr7m308im" path="res://phoneend.tscn" id="1_3mxfj"]
 
 [node name="datingapp" type="SubViewportContainer"]
 anchors_preset = 8
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
@@ -23,4 +24,4 @@ size = Vector2i(361, 618)
 size_2d_override = Vector2i(1080, 1920)
 render_target_update_mode = 4
 
-[node name="Phone" parent="SubViewport" instance=ExtResource("1_0m82o")]
+[node name="Phone" parent="." instance=ExtResource("1_3mxfj")]
