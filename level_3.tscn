@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhjpqalo6pm73"]
+[gd_scene load_steps=11 format=3 uid="uid://dhjpqalo6pm73"]
 
 [ext_resource type="Texture2D" uid="uid://3h4lkl7d73l7" path="res://tilemap_packed.png" id="1_iq6bw"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_tety4"]
 [ext_resource type="Texture2D" uid="uid://qrarkjki5shd" path="res://icon.svg" id="3_ba6h1"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="4_plcih"]
+[ext_resource type="PackedScene" uid="uid://dntue0tohftne" path="res://npc.tscn" id="5_qjsda"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgd1g"]
 
@@ -4440,6 +4441,10 @@ position = Vector2(2464, 635)
 position = Vector2(2.5, -263)
 shape = SubResource("RectangleShape2D_4itsi")
 
+[node name="npc" parent="." instance=ExtResource("5_qjsda")]
+position = Vector2(-984, 686)
+scale = Vector2(7, 7)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-3447, 648)
 script = ExtResource("2_tety4")
@@ -4463,3 +4468,5 @@ editor_draw_limits = true
 stream = ExtResource("4_plcih")
 
 [connection signal="body_entered" from="EndingArea" to="CharacterBody2D" method="_on_ending_area_body_entered"]
+[connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
+[connection signal="body_exited" from="npc" to="npc" method="_on_body_exited"]
