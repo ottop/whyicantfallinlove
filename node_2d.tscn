@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://v7vp2pu1en4t" path="res://player_tilesheet.png" id="4_efreo"]
 [ext_resource type="PackedScene" uid="uid://dig6q15fqn5qc" path="res://weather_control.tscn" id="4_nuay8"]
 [ext_resource type="AudioStream" uid="uid://cyw5ug1elds4e" path="res://rain-and-thunder-16705.mp3" id="5_tkrjm"]
-[ext_resource type="Texture2D" uid="uid://3h4lkl7d73l7" path="res://tilemap_packed.png" id="6_1o82g"]
+[ext_resource type="Texture2D" uid="uid://s7vu8l1pwxnq" path="res://tilemap_packed.png" id="6_1o82g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djvbj"]
 radius = 49.0

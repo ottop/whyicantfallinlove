@@ -30,4 +30,4 @@ func _on_input_box_message(i):
 	elif i == 2:
 		$PlayerBubble3.show()
 		await get_tree().create_timer(0.5).timeout
-		openingdone.emit()
+		get_tree().change_scene_to_file("res://level_1.tscn")

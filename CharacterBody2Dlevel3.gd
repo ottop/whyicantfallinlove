@@ -37,36 +37,27 @@ func _physics_process(delta):
 	# Handle wind effect
 	if not is_on_floor() or Input.get_action_strength("ui_left") > 0 or Input.get_action_strength("ui_right") > 0:
 		velocity.x = (wind_strength + Input.get_axis("ui_left", "ui_right")) * SPEED
+		$AnimatedSprite2D.play("run")
+	if Input.get_action_strength("ui_left") > 0:
+		$AnimatedSprite2D.flip_h = true
+	elif Input.get_action_strength("ui_right") > 0:
+		$AnimatedSprite2D.flip_h = false
 	else:
 		velocity.x = 0
+		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
-
-
-func enable_wind():
-	wind_strength = -0.5  # Set the wind strength when enabled
-	weatherControlNode.visible = true  # Reverse the visibility here
-	storm_sound.play()
-	# Add any other logic specific to enabling wind
-
-func disable_wind():
-	wind_strength = 0  # Set the wind strength back to 0 when disabled
-	weatherControlNode.visible = false  # Reverse the visibility here
-	storm_sound.stop()
-	# Add any other logic specific to disabling wind
 
 func _on_area_2d_body_entered(body):
 	if body is CharacterBody2D:
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
-			enable_wind()
 			print("hello")
 
 func _on_area_2d_body_exited(body):
 	if body is CharacterBody2D:
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
-			disable_wind()
 			print("bye")
 
 func _on_ending_area_body_entered(body):

@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhjpqalo6pm73"]
+[gd_scene load_steps=15 format=3 uid="uid://dhjpqalo6pm73"]
 
-[ext_resource type="Texture2D" uid="uid://3h4lkl7d73l7" path="res://tilemap_packed.png" id="1_iq6bw"]
+[ext_resource type="Texture2D" uid="uid://s7vu8l1pwxnq" path="res://tilemap_packed.png" id="1_iq6bw"]
 [ext_resource type="Script" path="res://CharacterBody2Dlevel3.gd" id="3_3sxsx"]
-[ext_resource type="Texture2D" uid="uid://qrarkjki5shd" path="res://icon.svg" id="3_ba6h1"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="4_plcih"]
+[ext_resource type="Texture2D" uid="uid://v7vp2pu1en4t" path="res://player_tilesheet.png" id="5_h7olx"]
 [ext_resource type="PackedScene" uid="uid://dntue0tohftne" path="res://npc.tscn" id="5_qjsda"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgd1g"]
@@ -4415,7 +4415,41 @@ sources/3 = SubResource("TileSetAtlasSource_53n8k")
 size = Vector2(101, 730)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyx0o"]
-size = Vector2(124, 126)
+size = Vector2(124, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yydhl"]
+atlas = ExtResource("5_h7olx")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmnhd"]
+atlas = ExtResource("5_h7olx")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvkpv"]
+atlas = ExtResource("5_h7olx")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_el6s4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yydhl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmnhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvkpv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
@@ -4451,10 +4485,8 @@ script = ExtResource("3_3sxsx")
 metadata/_edit_group_ = true
 
 [node name="characterhitbox" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_lyx0o")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("3_ba6h1")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 limit_top = 0
@@ -4466,6 +4498,12 @@ editor_draw_limits = true
 
 [node name="jump" type="AudioStreamPlayer" parent="CharacterBody2D"]
 stream = ExtResource("4_plcih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-2, -18)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_el6s4")
+animation = &"idle"
 
 [connection signal="body_entered" from="EndingArea" to="CharacterBody2D" method="_on_ending_area_body_entered"]
 [connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
