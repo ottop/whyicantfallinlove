@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmgm8v1lc305t"]
+
+[ext_resource type="Texture2D" uid="uid://qrarkjki5shd" path="res://icon.svg" id="1_lruvw"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_j2bs3"]
+[ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="3_rr3y5"]
+[ext_resource type="PackedScene" uid="uid://dig6q15fqn5qc" path="res://weather_control.tscn" id="4_ainen"]
+[ext_resource type="AudioStream" uid="uid://cyw5ug1elds4e" path="res://rain-and-thunder-16705.mp3" id="5_mjt2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c6t3"]
+size = Vector2(124, 126)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(153, 394)
+script = ExtResource("2_j2bs3")
+
+[node name="characterhitbox" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_2c6t3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_lruvw")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_top = 0
+limit_bottom = 650
+drag_horizontal_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+editor_draw_limits = true
+
+[node name="jump" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("3_rr3y5")
+
+[node name="StromTriggerArea" type="Area2D" parent="."]
+position = Vector2(412, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StromTriggerArea"]
+position = Vector2(471, -152)
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="weather_control" parent="." instance=ExtResource("4_ainen")]
+visible = false
+
+[node name="storm_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mjt2k")
+
+[connection signal="body_entered" from="StromTriggerArea" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="StromTriggerArea" to="CharacterBody2D" method="_on_area_2d_body_exited"]
+[connection signal="visibility_changed" from="weather_control" to="CharacterBody2D" method="_on_weather_control_visibility_changed"]
