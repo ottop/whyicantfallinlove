@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhjpqalo6pm73"]
 
 [ext_resource type="Texture2D" uid="uid://3h4lkl7d73l7" path="res://tilemap_packed.png" id="1_iq6bw"]
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_tety4"]
+[ext_resource type="Script" path="res://CharacterBody2Dlevel3.gd" id="3_3sxsx"]
 [ext_resource type="Texture2D" uid="uid://qrarkjki5shd" path="res://icon.svg" id="3_ba6h1"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="4_plcih"]
 [ext_resource type="PackedScene" uid="uid://dntue0tohftne" path="res://npc.tscn" id="5_qjsda"]
@@ -4447,7 +4447,7 @@ scale = Vector2(7, 7)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-3447, 648)
-script = ExtResource("2_tety4")
+script = ExtResource("3_3sxsx")
 metadata/_edit_group_ = true
 
 [node name="characterhitbox" type="CollisionShape2D" parent="CharacterBody2D"]

@@ -6,15 +6,16 @@ signal openingdone
 func _ready():
 	$SexyBubble1.show()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $SexyBubbleEnding.is_visible() and Input.is_action_pressed("ui_accept"):
+		get_tree().quit()
 
 func _on_person_image_change_view():
-	await get_tree().create_timer(0.5).timeout
-	show()
-	$InputBox.active = true
+	if not $SexyBubbleEnding.is_visible():
+		await get_tree().create_timer(0.5).timeout
+		show()
+		$InputBox.active = true
 
 
 func _on_input_box_message(i):
