@@ -14,7 +14,6 @@ var wind_strength = 0
 func _ready():
 	weatherControlNode = $"/root/Node2D/weather_control"
 	storm_sound = $"/root/Node2D/storm_audio"  # Replace with the actual name of your AudioStreamPlayer node
-	weatherControlNode.visible = false
 	jump_sound = $"/root/Node2D/CharacterBody2D/jump"
 
 func _physics_process(delta):
@@ -69,3 +68,9 @@ func _on_area_2d_body_exited(body):
 		if hitbox:
 			disable_wind()
 			print("bye")
+
+func _on_ending_area_body_entered(body):
+	if body is CharacterBody2D:
+		var hitbox = body.get_node("characterhitbox")
+		if hitbox:
+			get_tree().change_scene_to_file("res://datingappend.tscn")
