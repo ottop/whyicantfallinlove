@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bb4nvr7m308im" path="res://phoneend.tscn" id="1_3mxfj"]
 [ext_resource type="AudioStream" uid="uid://s6o1ymdav27b" path="res://sad-moment-sad-and-melancholy-piano-background-music-124488.mp3" id="2_wcf1h"]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect2" type="ColorRect"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.713726, 0, 0, 1)
