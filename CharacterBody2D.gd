@@ -45,7 +45,14 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 		$AnimatedSprite2D.play("idle")
-
+	
+	if Input.is_action_pressed("run"):
+		velocity.x = velocity.x * 1.5
+		$AnimatedSprite2D.speed_scale = 1.5
+		
+	else:
+		$AnimatedSprite2D.speed_scale = 1.0
+	
 	move_and_slide()
 
 
@@ -66,9 +73,8 @@ func _on_area_2d_body_entered(body):
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
 			enable_wind()
-			print("hello")
 
-func _on_area_2d_body_exited(body):
+func _on_ending_area_body_entered(body):
 	if body is CharacterBody2D:
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://uwgryulsw0wp"]
+[gd_scene load_steps=16 format=3 uid="uid://uwgryulsw0wp"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_j8ufn"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="3_2stq3"]
@@ -545,11 +545,11 @@ texture_region_size = Vector2i(21, 21)
 8:4/0 = 0
 8:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:4/0/physics_layer_0/angular_velocity = 0.0
-8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 10.5, -10.5, 10.5)
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 0.707106, -10.5, 0.707106)
 9:4/0 = 0
 9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:4/0/physics_layer_0/angular_velocity = 0.0
-9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 10.5, -10.5, 10.5)
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 0.707106, -10.5, 0.707106)
 10:4/0 = 0
 10:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:4/0/physics_layer_0/angular_velocity = 0.0
@@ -671,11 +671,11 @@ texture_region_size = Vector2i(21, 21)
 8:5/0 = 0
 8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:5/0/physics_layer_0/angular_velocity = 0.0
-8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 10.5, -10.5, 10.5)
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 0.707106, -10.5, 0.707106)
 9:5/0 = 0
 9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:5/0/physics_layer_0/angular_velocity = 0.0
-9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 10.5, -10.5, 10.5)
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -10.5, 10.5, -10.5, 10.5, 0.707106, -10.5, 0.707106)
 10:5/0 = 0
 10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:5/0/physics_layer_0/angular_velocity = 0.0
@@ -4432,6 +4432,9 @@ tile_size = Vector2i(21, 21)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_n71p2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqemu"]
+size = Vector2(168, 649)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(0.06, 0)
 
@@ -4491,9 +4494,16 @@ position = Vector2(5601, 33)
 [node name="weather_control2" parent="." instance=ExtResource("4_nuay8")]
 position = Vector2(8155.94, 19)
 
+[node name="EndingArea" type="Area2D" parent="."]
+position = Vector2(7449.94, 824)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingArea"]
+position = Vector2(15, -273.5)
+shape = SubResource("RectangleShape2D_wqemu")
+
 [connection signal="body_entered" from="StromTriggerArea" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="StromTriggerArea" to="CharacterBody2D" method="_on_area_2d_body_exited"]
 [connection signal="visibility_changed" from="weather_control" to="CharacterBody2D" method="_on_weather_control_visibility_changed"]
 [connection signal="visibility_changed" from="weather_control4" to="CharacterBody2D" method="_on_weather_control_visibility_changed"]
 [connection signal="visibility_changed" from="weather_control3" to="CharacterBody2D" method="_on_weather_control_visibility_changed"]
 [connection signal="visibility_changed" from="weather_control2" to="CharacterBody2D" method="_on_weather_control_visibility_changed"]
+[connection signal="body_entered" from="EndingArea" to="CharacterBody2D" method="_on_ending_area_body_entered"]
