@@ -4506,6 +4506,14 @@ position = Vector2(7449.94, 824)
 position = Vector2(15, -273.5)
 shape = SubResource("RectangleShape2D_wqemu")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1048.0
+offset_top = -286.0
+offset_right = 9482.0
+offset_bottom = 1647.0
+color = Color(0.298039, 0.376471, 0.529412, 1)
+
 [connection signal="body_entered" from="StromTriggerArea" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
 [connection signal="body_exited" from="npc" to="npc" method="_on_body_exited"]
