@@ -1,15 +1,14 @@
-[gd_scene load_steps=38 format=3 uid="uid://dhjpqalo6pm73"]
+[gd_scene load_steps=40 format=3 uid="uid://dhjpqalo6pm73"]
 
 [ext_resource type="Texture2D" uid="uid://s7vu8l1pwxnq" path="res://tilemap_packed.png" id="1_iq6bw"]
 [ext_resource type="Script" path="res://CharacterBody2Dlevel3.gd" id="3_3sxsx"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="4_plcih"]
 [ext_resource type="Texture2D" uid="uid://v7vp2pu1en4t" path="res://player_tilesheet.png" id="5_h7olx"]
-[ext_resource type="PackedScene" uid="uid://dntue0tohftne" path="res://npc.tscn" id="5_qjsda"]
-[ext_resource type="PackedScene" uid="uid://dig6q15fqn5qc" path="res://weather_control.tscn" id="6_42yai"]
 [ext_resource type="Script" path="res://npc.gd" id="5_sqoib"]
 [ext_resource type="Texture2D" uid="uid://br224eje12tuc" path="res://Human-Worker-Red.png" id="6_6thm0"]
 [ext_resource type="PackedScene" uid="uid://bi7iydmykum5b" path="res://dialogue.tscn" id="7_oir2a"]
 [ext_resource type="Script" path="res://dialoguelevel3.gd" id="8_cigtv"]
+[ext_resource type="PackedScene" uid="uid://bxgauqgs6bdb1" path="res://weather_control_level3.tscn" id="9_pfpoi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgd1g"]
 
@@ -4609,6 +4608,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbepl"]
+size = Vector2(8240, 1392)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -4685,18 +4687,25 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_el6s4")
 animation = &"idle"
 
-[node name="weather_control" parent="." instance=ExtResource("6_42yai")]
-position = Vector2(-3839, 27)
+[node name="weather_control" parent="." instance=ExtResource("9_pfpoi")]
 
-[node name="weather_control4" parent="." instance=ExtResource("6_42yai")]
-position = Vector2(-1821, 33)
+[node name="weather_control2" parent="." instance=ExtResource("9_pfpoi")]
+position = Vector2(2328, 0)
 
-[node name="weather_control3" parent="." instance=ExtResource("6_42yai")]
-position = Vector2(-992, 26)
+[node name="weather_control3" parent="." instance=ExtResource("9_pfpoi")]
+position = Vector2(-1424, 32)
 
-[node name="weather_control2" parent="." instance=ExtResource("6_42yai")]
-position = Vector2(1392, 23)
+[node name="weather_control4" parent="." instance=ExtResource("9_pfpoi")]
+position = Vector2(-2800, 16)
+
+[node name="SnowTriggerArea" type="Area2D" parent="."]
+position = Vector2(2328, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowTriggerArea"]
+position = Vector2(-1358, 334)
+shape = SubResource("RectangleShape2D_xbepl")
 
 [connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
 [connection signal="body_exited" from="npc" to="npc" method="_on_body_exited"]
 [connection signal="body_entered" from="EndingArea" to="CharacterBody2D" method="_on_ending_area_body_entered"]
+[connection signal="body_entered" from="SnowTriggerArea" to="CharacterBody2D" method="_on_snow_trigger_area_body_entered"]

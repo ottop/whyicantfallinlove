@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dig6q15fqn5qc"]
-
-[ext_resource type="Texture2D" uid="uid://eax7aajs0ojb" path="res://rain.png" id="1_e2rrh"]
+[gd_scene load_steps=2 format=3 uid="uid://bxgauqgs6bdb1"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fe208"]
 particle_flag_disable_z = true
@@ -19,5 +17,4 @@ position = Vector2(568, -19)
 scale = Vector2(5, 5)
 amount = 600
 process_material = SubResource("ParticleProcessMaterial_fe208")
-texture = ExtResource("1_e2rrh")
 lifetime = 4.0

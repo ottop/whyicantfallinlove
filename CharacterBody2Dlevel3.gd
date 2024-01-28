@@ -56,8 +56,19 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func enable_wind():
+	wind_strength = -0.5  # Set the wind strength when enabled
+	weatherControlNode.visible = true  # Reverse the visibility here	
+
 func _on_ending_area_body_entered(body):
 	if body is CharacterBody2D:
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
 			get_tree().change_scene_to_file("res://datingappend.tscn")
+
+
+func _on_snow_trigger_area_body_entered(body):
+	if body is CharacterBody2D:
+		var hitbox = body.get_node("characterhitbox")
+		if hitbox:
+			enable_wind()
