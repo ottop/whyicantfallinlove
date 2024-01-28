@@ -24,7 +24,7 @@ func start():
 		await get_tree().create_timer(1).timeout
 
 func load_dialogue():
-	var file = FileAccess.open("res://dialogue/text.json", FileAccess.READ)
+	var file = FileAccess.open("res://dialogue/textlvl3.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content		
 		
