@@ -1,4 +1,3 @@
-res://level_1.tscn
 res://datingapp.tscn
-res://node_2dleveljing.tscn
-res://CharacterBody2D.gd
+res://node_2d.tscn
+res://weather_control.tscn
