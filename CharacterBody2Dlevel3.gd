@@ -15,6 +15,7 @@ func _ready():
 	weatherControlNode = $"/root/Node2D/weather_control"
 	storm_sound = $"/root/Node2D/storm_audio"  # Replace with the actual name of your AudioStreamPlayer node
 	jump_sound = $"/root/Node2D/CharacterBody2D/jump"
+	weatherControlNode.visible = true 
 
 func _physics_process(delta):
 	# Add gravity

@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://CharacterBody2Dlevel3.gd" id="3_3sxsx"]
 [ext_resource type="AudioStream" uid="uid://cbdie56qk2bgf" path="res://swing-whoosh-110410.mp3" id="4_plcih"]
 [ext_resource type="Texture2D" uid="uid://v7vp2pu1en4t" path="res://player_tilesheet.png" id="5_h7olx"]
+[ext_resource type="PackedScene" uid="uid://dntue0tohftne" path="res://npc.tscn" id="5_qjsda"]
+[ext_resource type="PackedScene" uid="uid://dig6q15fqn5qc" path="res://weather_control.tscn" id="6_42yai"]
 [ext_resource type="Script" path="res://npc.gd" id="5_sqoib"]
 [ext_resource type="Texture2D" uid="uid://br224eje12tuc" path="res://Human-Worker-Red.png" id="6_6thm0"]
 [ext_resource type="PackedScene" uid="uid://bi7iydmykum5b" path="res://dialogue.tscn" id="7_oir2a"]
@@ -4610,10 +4612,10 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -6243.0
-offset_top = -552.0
-offset_right = 6242.0
-offset_bottom = 1802.0
+offset_left = -7337.0
+offset_top = -636.0
+offset_right = 5148.0
+offset_bottom = 1718.0
 color = Color(0.270588, 0.494118, 0.6, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -4682,6 +4684,18 @@ position = Vector2(-2, -18)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_el6s4")
 animation = &"idle"
+
+[node name="weather_control" parent="." instance=ExtResource("6_42yai")]
+position = Vector2(-3839, 27)
+
+[node name="weather_control4" parent="." instance=ExtResource("6_42yai")]
+position = Vector2(-1821, 33)
+
+[node name="weather_control3" parent="." instance=ExtResource("6_42yai")]
+position = Vector2(-992, 26)
+
+[node name="weather_control2" parent="." instance=ExtResource("6_42yai")]
+position = Vector2(1392, 23)
 
 [connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
 [connection signal="body_exited" from="npc" to="npc" method="_on_body_exited"]
