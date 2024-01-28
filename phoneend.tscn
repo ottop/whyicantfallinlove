@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb4nvr7m308im"]
+[gd_scene load_steps=16 format=3 uid="uid://bb4nvr7m308im"]
 
 [ext_resource type="Texture2D" uid="uid://clpadaulbl2e1" path="res://phone.png" id="1_4yieo"]
 [ext_resource type="Script" path="res://SwipeGuide.gd" id="2_k8w47"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cx4ak66yen8yl" path="res://topbar.png" id="8_5qkb8"]
 [ext_resource type="Texture2D" uid="uid://dh0vvxibs5ok4" path="res://playerbubble.png" id="9_x1o3m"]
 [ext_resource type="Texture2D" uid="uid://pxja0xwxna7d" path="res://sexybabebubble.png" id="10_qq6su"]
+[ext_resource type="Texture2D" uid="uid://xd2vxf5w8rnn" path="res://monster-1297726_1280.png" id="11_dn60s"]
 
 [sub_resource type="Gradient" id="Gradient_o3us3"]
 colors = PackedColorArray(0.709804, 0.627451, 0, 1, 1, 0.541176, 0.815686, 1)
@@ -233,6 +234,20 @@ offset_bottom = 23.3382
 text = "Turns out I can't make today. 
 Next week?"
 metadata/_edit_use_anchors_ = true
+
+[node name="HeroineBubble" type="Sprite2D" parent="MessagingView"]
+visible = false
+position = Vector2(3, -140.5)
+scale = Vector2(3, 3)
+texture = ExtResource("10_qq6su")
+metadata/_edit_group_ = true
+
+[node name="heroine" type="Sprite2D" parent="MessagingView"]
+visible = false
+position = Vector2(7, -145.5)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("11_dn60s")
+metadata/_edit_group_ = true
 
 [connection signal="body_exited" from="." to="PersonImage" method="_on_phone_body_exited"]
 [connection signal="change_view" from="PersonImage" to="SwipeGuide" method="_on_person_image_change_view"]

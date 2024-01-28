@@ -4439,6 +4439,14 @@ size = Vector2(168, 649)
 [node name="Node2D" type="Node2D"]
 position = Vector2(0.06, 0)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -1318.0
+offset_top = -755.0
+offset_right = 9645.0
+offset_bottom = 1444.0
+color = Color(0.298039, 0.376471, 0.529412, 1)
+
 [node name="StromTriggerArea" type="Area2D" parent="."]
 position = Vector2(1324, 604)
 scale = Vector2(1.25, 1.25)

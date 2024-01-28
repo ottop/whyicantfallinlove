@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cog331kvesx0n"]
+[gd_scene load_steps=12 format=3 uid="uid://cog331kvesx0n"]
 
 [ext_resource type="Texture2D" uid="uid://s7vu8l1pwxnq" path="res://tilemap_packed.png" id="1_r0h1f"]
 [ext_resource type="PackedScene" uid="uid://dmgm8v1lc305t" path="res://node_2dleveljing.tscn" id="2_g4bq7"]
 [ext_resource type="Texture2D" uid="uid://cvuncgoan7pr4" path="res://sheet.png" id="3_4uurt"]
 [ext_resource type="Script" path="res://Area2D.gd" id="4_jv0k4"]
+[ext_resource type="AudioStream" uid="uid://bsa2nv0he3qwo" path="res://happy-holiday-120132.mp3" id="5_2hcgg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_irtr6"]
 
@@ -4725,5 +4726,10 @@ script = ExtResource("4_jv0k4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(6918.25, 282.5)
 shape = SubResource("RectangleShape2D_t5j2n")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2hcgg")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

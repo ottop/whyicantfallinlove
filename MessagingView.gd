@@ -9,6 +9,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if $SexyBubbleEnding.is_visible() and Input.is_action_pressed("ui_accept"):
+		for i in [$PlayerBubble1,$PlayerBubble2,$PlayerBubble3,$SexyBubble1,$SexyBubble2,$SexyBubble3,$SexyBubbleEnding]:
+			i.hide()
+		$heroine.show()
+		$HeroineBubble.show()
+		await get_tree().create_timer(5).timeout
 		get_tree().quit()
 
 func _on_person_image_change_view():

@@ -72,3 +72,4 @@ func _on_snow_trigger_area_body_entered(body):
 		var hitbox = body.get_node("characterhitbox")
 		if hitbox:
 			enable_wind()
+			$"/root/Node2D/music".play()

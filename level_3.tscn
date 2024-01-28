@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dhjpqalo6pm73"]
+[gd_scene load_steps=41 format=3 uid="uid://dhjpqalo6pm73"]
 
 [ext_resource type="Texture2D" uid="uid://s7vu8l1pwxnq" path="res://tilemap_packed.png" id="1_iq6bw"]
 [ext_resource type="Script" path="res://CharacterBody2Dlevel3.gd" id="3_3sxsx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bi7iydmykum5b" path="res://dialogue.tscn" id="7_oir2a"]
 [ext_resource type="Script" path="res://dialoguelevel3.gd" id="8_cigtv"]
 [ext_resource type="PackedScene" uid="uid://bxgauqgs6bdb1" path="res://weather_control_level3.tscn" id="9_pfpoi"]
+[ext_resource type="AudioStream" uid="uid://chm7uuxb828g5" path="res://we-wish-you-a-merry-christmas-126685.mp3" id="10_qib5a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgd1g"]
 
@@ -4609,7 +4610,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbepl"]
-size = Vector2(8240, 1392)
+size = Vector2(9840.5, 1392)
 
 [node name="Node2D" type="Node2D"]
 
@@ -4688,22 +4689,27 @@ sprite_frames = SubResource("SpriteFrames_el6s4")
 animation = &"idle"
 
 [node name="weather_control" parent="." instance=ExtResource("9_pfpoi")]
+position = Vector2(1062, -13)
 
 [node name="weather_control2" parent="." instance=ExtResource("9_pfpoi")]
 position = Vector2(2328, 0)
 
 [node name="weather_control3" parent="." instance=ExtResource("9_pfpoi")]
-position = Vector2(-1424, 32)
+position = Vector2(-1171, 5)
 
 [node name="weather_control4" parent="." instance=ExtResource("9_pfpoi")]
-position = Vector2(-2800, 16)
+position = Vector2(-2762, -24)
 
 [node name="SnowTriggerArea" type="Area2D" parent="."]
 position = Vector2(2328, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnowTriggerArea"]
-position = Vector2(-1358, 334)
+position = Vector2(-930.25, 232)
 shape = SubResource("RectangleShape2D_xbepl")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qib5a")
+volume_db = -10.0
 
 [connection signal="body_entered" from="npc" to="npc" method="_on_body_entered"]
 [connection signal="body_exited" from="npc" to="npc" method="_on_body_exited"]
