@@ -17,7 +17,7 @@ func _process(delta):
 		get_tree().quit()
 
 func _on_person_image_change_view():
-	if not $SexyBubbleEnding.is_visible():
+	if $heroine == null and not $SexyBubbleEnding.is_visible():
 		await get_tree().create_timer(0.5).timeout
 		show()
 		$InputBox.active = true
