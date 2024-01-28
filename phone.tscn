@@ -236,8 +236,8 @@ offset_left = -94.5883
 offset_top = -25.6618
 offset_right = 130.412
 offset_bottom = 23.3382
-text = "Turns out I can't make today. 
-Next week?"
+text = "Turns out I can't make today. Next week?"
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_exited" from="." to="PersonImage" method="_on_phone_body_exited"]
